@@ -1,0 +1,89 @@
+### 1. Add Student 1 (Excellent - Stronger in Programming)
+POST http://localhost:8080/api/students
+Content-Type: application/json
+
+{
+  "studentId": 101,
+  "studentName": "Aarav Sharma",
+  "email": "aarav@example.com",
+  "courseName": "CSE",
+  "programmingScore": 92.0,
+  "mathematicsScore": 84.0,
+  "technicalSkills": ["Java", "Spring Boot", "MySQL"]
+}
+
+### 2. Add Student 2 (Good - Stronger in Math)
+POST http://localhost:8080/api/students
+Content-Type: application/json
+
+{
+  "studentId": 102,
+  "studentName": "Priya Verma",
+  "email": "priya@example.com",
+  "courseName": "CSEAI",
+  "programmingScore": 72.0,
+  "mathematicsScore": 86.0,
+  "technicalSkills": ["Python", "Java", "Machine Learning"]
+}
+
+### 3. Add Student 3 (Weak in Programming <50, Strong in Math >=75)
+POST http://localhost:8080/api/students
+Content-Type: application/json
+
+{
+  "studentId": 103,
+  "studentName": "Rohan Gupta",
+  "email": "rohan@example.com",
+  "courseName": "IT",
+  "programmingScore": 42.0,
+  "mathematicsScore": 82.0,
+  "technicalSkills": ["MySQL", "HTML"]
+}
+
+### 4. Validation Check (Duplicate ID or Invalid Score > 100)
+POST http://localhost:8080/api/students
+Content-Type: application/json
+
+{
+  "studentId": 101,
+  "studentName": "Duplicate User",
+  "email": "dup@example.com",
+  "courseName": "CSE",
+  "programmingScore": 105.0,
+  "mathematicsScore": 90.0,
+  "technicalSkills": ["C++"]
+}
+
+### 5. Retrieve All Students
+GET http://localhost:8080/api/students
+
+### 6. Search Student by ID
+GET http://localhost:8080/api/students/101
+
+### 7. Search Student by Email & Course
+GET http://localhost:8080/api/students/search/email?email=priya@example.com
+
+###
+GET http://localhost:8080/api/students/search/course?course=CSE
+
+### 8. Display Merit List (Sorted by Average Score Descending)
+GET http://localhost:8080/api/students/merit-list
+
+### 9. Group Students with Same Technical Skills
+GET http://localhost:8080/api/students/skills-group
+
+### 10. Weak in Programming (<50) & Strong in Math (>=75)
+GET http://localhost:8080/api/students/math-strong
+
+### 11. Update Student Scores and Skills
+PUT http://localhost:8080/api/students/103
+Content-Type: application/json
+
+{
+  "programmingScore": 65.0,
+  "mathematicsScore": 85.0,
+  "technicalSkills": ["MySQL", "Java"]
+}
+
+### 12. Delete Student Record
+DELETE http://localhost:8080/api/students/102
